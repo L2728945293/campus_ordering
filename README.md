@@ -172,3 +172,7 @@ CREATE TABLE `admins` (
 
 ## 后端接口
 参照doc.md
+
+
+## Nacos-server
+需要安装Nacos-server
