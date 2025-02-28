@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.jlu.mapper.OrderMapper">
+    <update id="batchUpdateStatus">
+        UPDATE `order`
+        SET status = #{newStatus},
+        update_time = NOW()
+        WHERE id IN
+        <foreach collection="orderIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        AND status = 0
+    </update>
+</mapper>

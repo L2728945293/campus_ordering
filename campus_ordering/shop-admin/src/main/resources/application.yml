@@ -1,0 +1,34 @@
+server:
+  port: 8072
+spring:
+  application:
+    name: service-admin
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/campus_ordering?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.edu.jlu.po
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      update-strategy: not_null
+
+cloud:
+  nacos:
+    discovery:
+      server-addr: 127.0.0.1:8848
+sky:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    shop-secret-key: itcast
+    # 设置jwt过期时间
+    shop-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    shop-token-name: token
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: authentication

@@ -1,0 +1,22 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: service-cart
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/campus_ordering?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.edu.jlu.po
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      update-strategy: not_null
+cloud:
+  nacos:
+    discovery:
+      server-addr: 127.0.0.1:8848
